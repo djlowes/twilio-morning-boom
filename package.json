@@ -1,0 +1,48 @@
+{
+  "name": "Morning Boom",
+  "version": "1.0.0",
+  "description": "Receive a 5 minute inspirational video sent to your phone every morning to start each day off with a BOOM",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/djlowes/twilio-morning-boom"
+  },
+  "keywords": [
+    "Twilio",
+    "Morning Boom"
+  ],
+  "author": "David Lowes",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/djlowes/twilio-morning-boom/issues"
+  },
+  "homepage": "https://github.com/djlowes/twilio-morning-boom#readme",
+  "dependencies": {
+    "axios": "^0.17.1",
+    "bcrypt-nodejs": "0.0.3",
+    "body-parser": "^1.18.2",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.16.2",
+    "express-session": "^1.15.6",
+    "express-validator": "^5.0.1",
+    "jade": "^1.11.0",
+    "mongoose": "^5.0.6",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^4.5.0",
+    "path": "^0.12.7",
+    "request": "^2.83.0",
+    "require": "^2.4.20",
+    "twilio": "^3.14.0",
+    "uglify": "^0.1.5"
+  },
+  "engines": {
+    "node": "9.5.0"
+  }
+}
