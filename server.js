@@ -5,16 +5,12 @@ var express = require("express");
 var app = express();
 var PORT = process.env.PORT || 3000;
 var mongoose = require('mongoose');
-var passport = require('passport');
-var flash = require('connect-flash');
 
-var morgan = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require("body-parser");
 var session = require('express-session');
 var expressValidator = require('express-validator');
 
-// var LocalStrategy = require('passport-local').Strategy;
 
 //--------------------------------------
 // DB
@@ -22,16 +18,13 @@ var expressValidator = require('express-validator');
 
 mongoose.Promise = global.Promise;
 mongoose.connect(
-  process.env.MONGODB_URI || "mongodb://localhost/surveymonkey",
-  {
-    useMongoClient: true
-  }
+  process.env.MONGODB_URI || "mongodb://localhost/twilio"
 );
 
 // if (process.env.NODE_ENV == 'production') {
 //    mongoose.connect('');
 //    } else {
-//   mongoose.connect('mongodb://localhost/surveymonkey');
+//   mongoose.connect('mongodb://localhost/twilio');
 //    }
 
 var db = mongoose.connection;
@@ -45,15 +38,12 @@ db.once('open', function() {
 //--------------------------------------
 // Models
 //--------------------------------------
-var User = require('./models/User');
-var apiRoutes = require("./app/routing/apiRoutes");
-app.use('/api', apiRoutes);
-require('./app/routing/passport.js')(passport)
+var Subscriber = require('./models/Subscriber');
+
 
 //--------------------------------------
 // Middleware
 //--------------------------------------
-app.use(morgan('dev'));
 app.use(express.static(__dirname + '/app/public'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -65,17 +55,9 @@ app.use(require('express-session')({
   saveUninitialized: true
 }));
 
-//--------------------------------------
-// Passport
-//--------------------------------------
-app.use(passport.initialize());
-app.use(passport.session());
-app.use(flash());
-
-//--------------------------------------
-// Routing
-//--------------------------------------
-require('./app/routing/routes.js')(app, passport)
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
 
 //--------------------------------------
 // Listener
