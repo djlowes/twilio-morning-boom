@@ -1,0 +1,9 @@
+.env
+.DS_Store
+npm-debug.log
+node_modules
+*.log
+config.js
+.eslintrc.yml
+.travis.yml
+Procfile
