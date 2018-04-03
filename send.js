@@ -3,7 +3,7 @@ const config = require('./config');
 
 // Find your account sid and auth token in your Twilio account Console.
 var client = new twilio(config.accountSid, config.authToken);
-var body = 'Hi ' + process.argv[2] + ' here is an awesome motivational video for you! - www.youtube.com'
+var body = "Hi " + process.argv[2] + ", what's happening with Twilio's website!? https://goo.gl/m332jg"
 
 // Send the text message.
 client.messages.create({
